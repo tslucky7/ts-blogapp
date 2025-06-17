@@ -28,6 +28,11 @@ body {
   color: $text-base-color;
 }
 
+a {
+  color: $text-base-color;
+  text-decoration: none;
+}
+
 .container {
   padding: 16px 16px;
   width: 100%;
