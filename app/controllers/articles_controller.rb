@@ -16,12 +16,15 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
   def article_params
+    puts "----------------------"
+    puts params
+    puts "-----------------------"
     params.require(:article).permit(:title, :content)
   end
 end
