@@ -22,9 +22,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    puts "----------------------"
-    puts params
-    puts "-----------------------"
     params.require(:article).permit(:title, :content)
   end
 end
