@@ -381,6 +381,7 @@ DEPENDENCIES
   pry-byebug
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
+  rubocop-rails
   rubocop-rails-omakase
   sassc-rails
   selenium-webdriver
