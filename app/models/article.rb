@@ -9,8 +9,9 @@
 #  updated_at :datetime         not null
 #
 class Article < ApplicationRecord
-  validates :title, presence: true
-  validates :content, presence: true
+  validates :title, presence: true, length: { minimum: 2, maximum: 100 }
+
+  validates :content, presence: true, length: { minimum: 10 }, uniqueness: true
 
   def display_created_at
     I18n.l(self.created_at, format: :default)
