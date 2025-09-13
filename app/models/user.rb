@@ -27,4 +27,9 @@ class User < ApplicationRecord
   def has_written?(article)
     articles.exists?(id: article.id)
   end
+
+  def display_name
+    self.email.split("@")[0]
+    # -> ["cohki0305", "gmail.com"]
+  end
 end
