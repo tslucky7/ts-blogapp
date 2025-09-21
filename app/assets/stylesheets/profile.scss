@@ -6,6 +6,7 @@ $image_size: 56px;
   margin-top: 24px;
 
   &_user {
+    margin-bottom: 32px;
     display: flex;
 
     &_image {
@@ -40,6 +41,7 @@ $image_size: 56px;
 
     &_name {
       display: flex;
+      flex-wrap: wrap;
       margin-bottom: 8px;
     }
 
