@@ -40,7 +40,8 @@ $back-icon-size: 16px;
     font-size: $font-lg;
   }
 
-  &_avatar {
+  & &_avatar {
+    margin: unset;
     width: $avatar-size;
     height: $avatar-size;
     border-radius: 100%;
