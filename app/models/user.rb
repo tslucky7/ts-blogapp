@@ -30,8 +30,25 @@ class User < ApplicationRecord
   end
 
   def display_name
-    self.email.split("@")[0]
+    # 以下のコードはネストされた条件演算子。
+    # profileがnilでなく、かつprofile.nicknameがnilでない場合はprofile.nicknameを返し、そうでない場合はself.email.split("@")[0]を返す
+    # if profile && profile.nickname
+    #   profile.nickname
+    # else
+    #   self.email.split("@")[0]
+    # end
+
+    # ボッチ演算子では上記のコードを以下のように書き換えることができる
+    profile&.nickname || self.email.split("@")[0]
     # -> ["cohki0305", "gmail.com"]
+  end
+
+  def birthday
+    profile&.birthday
+  end
+
+  def gender
+    profile&.gender
   end
 
   def prepare_profile
