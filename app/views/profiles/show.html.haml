@@ -5,7 +5,8 @@
     .profilePage_user_basicInfo
       .profilePage_user_name
         .profilePage_user_displayName
-          = current_user.display_name
+          -# 以下の誕生日と性別については未入力の場合は表示がおかしくなるが、一旦保留にして後ほど解消する
+          #{current_user.display_name} (#{current_user.birthday}・#{current_user.gender})
         .profilePage_user_actionButton
           = link_to 'Edit', edit_profile_path
       .profilePage_user_introduction
