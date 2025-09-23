@@ -25,6 +25,11 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_one :profile, dependent: :destroy
 
+  # delegateメソッドを使用することによりメソッドの記載を簡略化できる
+  # to: :profileとすることにより、profileモデルのbirthdayとgenderメソッドをUserモデルで使用できるようになる
+  # allow_nil: trueを指定することにより、profileがnilの場合はnilを返す
+  delegate :birthday, :gender, to: :profile, allow_nil: true
+
   def has_written?(article)
     articles.exists?(id: article.id)
   end
@@ -43,13 +48,13 @@ class User < ApplicationRecord
     # -> ["cohki0305", "gmail.com"]
   end
 
-  def birthday
-    profile&.birthday
-  end
+  # def birthday
+  #   profile&.birthday
+  # end
 
-  def gender
-    profile&.gender
-  end
+  # def gender
+  #   profile&.gender
+  # end
 
   def prepare_profile
     profile || build_profile
