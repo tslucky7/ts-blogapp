@@ -6,7 +6,7 @@
       .profilePage_user_name
         .profilePage_user_displayName
           -# 以下の誕生日と性別については未入力の場合は表示がおかしくなるが、一旦保留にして後ほど解消する
-          #{current_user.display_name} (#{current_user.age}・#{current_user.gender})
+          #{current_user.display_name} (#{current_user.age}・#{I18n.t("enum.genders.#{current_user.gender}")})
         .profilePage_user_actionButton
           = link_to 'Edit', edit_profile_path
       .profilePage_user_introduction
