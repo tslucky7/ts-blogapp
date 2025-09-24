@@ -19,6 +19,7 @@
 class Profile < ApplicationRecord
   enum gender: { male: 0, female: 1, other: 2 }
   belongs_to :user
+  has_one_attached :avatar
 
   def age
     # 誕生日が未入力（nilまたは空）の場合は年齢を計算できないため、「不明」という文字列を返す処理です。
