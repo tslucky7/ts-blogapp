@@ -28,7 +28,7 @@ class User < ApplicationRecord
   # delegateメソッドを使用することによりメソッドの記載を簡略化できる
   # to: :profileとすることにより、profileモデルのbirthdayとgenderメソッドをUserモデルで使用できるようになる
   # allow_nil: trueを指定することにより、profileがnilの場合はnilを返す
-  delegate :birthday, :gender, to: :profile, allow_nil: true
+  delegate :birthday, :age, :gender, to: :profile, allow_nil: true
 
   def has_written?(article)
     articles.exists?(id: article.id)
