@@ -24,7 +24,7 @@
         %p.header_pageTitle Ts BlogApp
         - if user_signed_in?
           %nav.dropdown
-            = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+            = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
             %ul.dropdown-content
               %li
               = link_to "プロフィール", profile_path

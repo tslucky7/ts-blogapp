@@ -36,7 +36,8 @@ class ProfilesController < ApplicationController
       :introduction,
       :gender,
       :birthday,
-      :subscribed
+      :subscribed,
+      :avatar  # ← この行でアバター画像のアップロードを許可
     )
   end
 end

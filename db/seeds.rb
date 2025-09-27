@@ -8,19 +8,23 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-test = User.create!(email: "test@example.com", password: "password")
-test2 = User.create!(email: "test2@example.com", password: "password")
+test = User.find_or_create_by!(email: "test@example.com") do |user|
+  user.password = "password"
+end
+test2 = User.find_or_create_by!(email: "test2@example.com") do |user|
+  user.password = "password"
+end
 
 5.times do
   test.articles.create(
-    title: Faker::Lorem.sentence(word_count: 5),
-    content: Faker::Lorem.sentence(word_count: 50)
+    title: Faker::Lorem.sentence(word_count: 3),
+    content: Faker::Lorem.sentence(word_count: 15)
   )
 end
 
 5.times do
   test2.articles.create(
-    title: Faker::Lorem.sentence(word_count: 5),
-    content: Faker::Lorem.sentence(word_count: 50)
+    title: Faker::Lorem.sentence(word_count: 3),
+    content: Faker::Lorem.sentence(word_count: 15)
   )
 end

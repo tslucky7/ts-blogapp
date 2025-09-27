@@ -1,7 +1,14 @@
 .container.profilePage
   .profilePage_user
     .profilePage_user_image
-      = image_tag 'default-avatar.png'
+      -# 以下のコードは長いからメソッドに委ねてコメントアウト (画像がアップロードされているかどうかを判断するためのコード,画像がないならデフォルトの画像を表示)
+      -# - if current_user.profile&.avatar&.attached?
+      -#   = image_tag current_user.profile&.avatar
+      -# - else
+      -#   = image_tag 'default-avatar.png'
+
+      -# avatar_imageはuser.rbのメソッドで、画像がアップロードされているかどうかを判断する
+      = image_tag current_user.avatar_image
     .profilePage_user_basicInfo
       .profilePage_user_name
         .profilePage_user_displayName

@@ -59,4 +59,14 @@ class User < ApplicationRecord
   def prepare_profile
     profile || build_profile
   end
+
+  # attached?はActive Storageのメソッドで、画像がアップロードされているかどうかを判断する
+  # profileとavatarはボッチ演算子で判定する必要がある
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile&.avatar
+    else
+      "default-avatar.png"
+    end
+  end
 end
