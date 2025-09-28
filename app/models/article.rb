@@ -33,6 +33,12 @@ class Article < ApplicationRecord
     user.display_name
   end
 
+  def like_count
+    # likes自体は、has_many :likesで指定しているため取得可能
+    # countは、ActiveRecordのメソッドで、likesテーブル内のレコードの数を取得するメソッド
+    likes.count
+  end
+
   private
   def validate_title_and_content_length
     char_count =  self.title.length + self.content.length
