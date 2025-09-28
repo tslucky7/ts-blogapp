@@ -9,4 +9,12 @@ class LikesController < ApplicationController
     article.likes.create!(user_id: current_user.id)
     redirect_to article_path(article)
   end
+
+  def destroy
+    article = Article.find(params[:article_id])
+    # find_byの!の内訳：!で絶対にいいねしている記事を探し出して削除。そもそもいいねしていない記事に対して削除できるわけがない
+    like = article.likes.find_by!(user_id: current_user.id)
+    like.destroy!
+    redirect_to article_path(article)
+  end
 end
