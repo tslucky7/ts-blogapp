@@ -14,6 +14,8 @@
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
+  has_one_attached :eyecatch
+
   validates :title, presence: true, length: { minimum: 2, maximum: 100 }, format: { with: /\A(?!\@).*\z/ }
 
   validates :content, presence: true, length: { minimum: 10 }, uniqueness: true
