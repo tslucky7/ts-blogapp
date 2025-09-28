@@ -1,0 +1,10 @@
+.container
+  %h2
+    お気に入りの記事一覧
+  -# お気に入りの記事があるかどうかを判断する。ループより上で判定しないとそもそもループが回らず条件分岐も発生しないため、お気に入りの記事がない場合に文言が表示されない
+  - if @articles.present?
+    - @articles.each do |article|
+      -# お気に入りの記事一覧を表示する
+      = render 'commons/article', article: article
+  - else
+    %p お気に入りの記事がありません
