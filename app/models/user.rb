@@ -35,6 +35,12 @@ class User < ApplicationRecord
     articles.exists?(id: article.id)
   end
 
+  # いいねを押しているかどうかを判断するメソッド
+  def has_liked?(article)
+    # likesテーブルに、ユーザーがいいねを押した記事のidに一致する、likesテーブル側のarticle_idが存在するかどうかを判断する
+    likes.exists?(article_id: article.id)
+  end
+
   def display_name
     # 以下のコードはネストされた条件演算子。
     # profileがnilでなく、かつprofile.nicknameがnilでない場合はprofile.nicknameを返し、そうでない場合はself.email.split("@")[0]を返す
@@ -48,14 +54,6 @@ class User < ApplicationRecord
     profile&.nickname || self.email.split("@")[0]
     # -> ["cohki0305", "gmail.com"]
   end
-
-  # def birthday
-  #   profile&.birthday
-  # end
-
-  # def gender
-  #   profile&.gender
-  # end
 
   def prepare_profile
     profile || build_profile
