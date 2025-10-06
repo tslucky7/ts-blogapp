@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
+  # favorite_articles: この名前のテーブルは存在しない。あくまでarticleのエイリアスと考えていい。
+  # through: :likes likesテーブルを介してarticleテーブルにアクセスする
+  # source: :article articleテーブルを参照するという意味。すでに:articleが指定されているのに加え、お気に入り記事というのがわかりづらいため
+  has_many :favorite_articles, through: :likes, source: :article
   has_one :profile, dependent: :destroy
 
   # delegateメソッドを使用することによりメソッドの記載を簡略化できる
