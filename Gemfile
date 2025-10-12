@@ -27,12 +27,12 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 gem "annotate"
+gem "aws-sdk-s3", require: false
 gem "better_errors"
 gem "binding_of_caller"
 gem "devise"
 gem "faker"
 gem "hamlit"
-gem "aws-sdk-s3", require: false
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
@@ -48,9 +48,9 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ], require: "debug/prelude"
+  gem "dotenv-rails"
   gem "pry-byebug"
   gem "rubocop-rails"
-  gem "dotenv-rails"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
