@@ -11,8 +11,8 @@ module TsBlogapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
-    Bundler.require(*Rails.groups)
     if [ "development", "test" ].include? ENV["RAILS_ENV"]
+      Bundler.require(*Rails.groups)
       Dotenv::Railtie.load
     end
 
