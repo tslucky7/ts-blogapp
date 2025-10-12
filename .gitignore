@@ -38,3 +38,6 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# DON'T DELETE!!! Ignore AWS access key
+/AWS-access-key
