@@ -4,7 +4,10 @@
       = image_tag @article.eyecatch
   %h1.article_title= @article.title
   .article_detail
-    = image_tag current_user.avatar_image
+    - if current_user&.avatar_image&.attached?
+      = image_tag current_user.avatar_image
+    - else
+      = image_tag 'default-avatar.png'
     %div
       %p= @article.author_name
       %p= @article.display_created_at
