@@ -4,6 +4,14 @@ const application = Application.start()
 
 // Configure Stimulus development experience
 application.debug = false
-window.Stimulus   = application
+
+// Extend Window interface to include Stimulus
+declare global {
+  interface Window {
+    Stimulus: Application
+  }
+}
+
+window.Stimulus = application
 
 export { application }
