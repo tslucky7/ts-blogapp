@@ -39,5 +39,9 @@
 
 /node_modules
 
+# TypeScript
+*.tsbuildinfo
+/dist
+
 # DON'T DELETE!!! Ignore AWS access key
 /AWS-access-key
