@@ -26,9 +26,9 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem "active_model_serializers"
 gem "annotate"
 gem "aws-sdk-s3", require: false
-gem "active_model_serializers"
 gem "better_errors"
 gem "binding_of_caller"
 gem "devise"

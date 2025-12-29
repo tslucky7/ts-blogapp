@@ -17,7 +17,7 @@ class LikesController < ApplicationController
     article = Article.find(params[:article_id])
     # user.article.createと同じ原理、article.rbでhas_many :likesで指定しているため取得可能
     article.likes.create!(user_id: current_user.id)
-    render json: { status: 'ok' }
+    render json: { status: "ok" }
   end
 
   def destroy
@@ -25,7 +25,7 @@ class LikesController < ApplicationController
     # find_byの!の内訳：!で絶対にいいねしている記事を探し出して削除。そもそもいいねしていない記事に対して削除できるわけがない
     like = article.likes.find_by!(user_id: current_user.id)
     like.destroy!
-    
-    render json: { status: 'ok' }
+
+    render json: { status: "ok" }
   end
 end
