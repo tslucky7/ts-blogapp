@@ -7,8 +7,6 @@
 export const getCsrfToken = (): string | null => {
   const metaTag = document.querySelector<HTMLMetaElement>(
     'meta[name="csrf-token"]'
-  )
-  return metaTag?.content || null
-}
-
-
+  );
+  return metaTag?.content || null;
+};
