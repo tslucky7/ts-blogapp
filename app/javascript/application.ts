@@ -3,6 +3,8 @@ import '@hotwired/turbo-rails';
 import './controllers';
 import { fetchComments, handleCommentForm, postCommentForm } from './modules/handle_comment';
 import { fetchHeartStatus, listenInactiveHeart, listenActiveHeart } from './modules/handle_heart';
+import 'trix';
+import '@rails/actiontext';
 
 // app/javascript/application.jsのjQueryをTypeScriptに変換したもの。
 // jqueryではaxiosを使用しているが、TypeScriptでは純粋なtsのみでの実装を方針とする。
