@@ -3,6 +3,7 @@
     .article_image
       = image_tag @article.eyecatch
   %h1.article_title= @article.title
+  %p!= @article.content
   .article_detail
     = image_tag current_user.avatar_image
     %div
