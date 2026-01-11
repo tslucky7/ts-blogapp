@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resource :like, only: [ :show, :create, :destroy ]
   end
 
+  resources :accounts, only: [ :show ]
+
   resource :profile, only: [ :show, :edit, :update ]
   # favorites: お気に入りの記事一覧を表示するためのルーティング
   resources :favorites, only: [ :index ]
