@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "articles#index"
 
+  resource :timeline, only: [ :show ]
+
   resources :articles do
     resources :comments, only: [ :new, :index, :create ]
 
