@@ -170,7 +170,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    hamlit (3.0.3)
+    hamlit (4.0.0)
       temple (>= 0.8.2)
       thor
       tilt
@@ -382,8 +382,8 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     temple (0.10.4)
-    thor (1.3.2)
-    tilt (2.6.0)
+    thor (1.4.0)
+    tilt (2.6.1)
     timeout (0.4.3)
     turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
