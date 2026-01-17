@@ -24,18 +24,4 @@ class Article < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   belongs_to :user
-
-  def display_created_at
-    I18n.l(self.created_at, format: :default)
-  end
-
-  def author_name
-    user.display_name
-  end
-
-  def like_count
-    # likes自体は、has_many :likesで指定しているため取得可能
-    # countは、ActiveRecordのメソッドで、likesテーブル内のレコードの数を取得するメソッド
-    likes.count
-  end
 end

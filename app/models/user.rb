@@ -45,24 +45,8 @@ class User < ApplicationRecord
     articles.exists?(id: article.id)
   end
 
-  # いいねを押しているかどうかを判断するメソッド
   def has_liked?(article)
-    # likesテーブルに、ユーザーがいいねを押した記事のidに一致する、likesテーブル側のarticle_idが存在するかどうかを判断する
     likes.exists?(article_id: article.id)
-  end
-
-  def display_name
-    # 以下のコードはネストされた条件演算子。
-    # profileがnilでなく、かつprofile.nicknameがnilでない場合はprofile.nicknameを返し、そうでない場合はself.email.split("@")[0]を返す
-    # if profile && profile.nickname
-    #   profile.nickname
-    # else
-    #   self.email.split("@")[0]
-    # end
-
-    # ボッチ演算子では上記のコードを以下のように書き換えることができる
-    profile&.nickname || self.email.split("@")[0]
-    # -> ["cohki0305", "gmail.com"]
   end
 
   def follow!(user)
@@ -84,16 +68,6 @@ class User < ApplicationRecord
 
   def prepare_profile
     profile || build_profile
-  end
-
-  # attached?はActive Storageのメソッドで、画像がアップロードされているかどうかを判断する
-  # profileとavatarはボッチ演算子で判定する必要がある
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile&.avatar
-    else
-      "default-avatar.png"
-    end
   end
 
   private
