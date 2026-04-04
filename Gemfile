@@ -35,6 +35,7 @@ gem "binding_of_caller"
 gem "devise"
 gem "faker"
 gem "hamlit"
+gem "sidekiq"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
