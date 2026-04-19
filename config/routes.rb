@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [ :new, :index, :create ]
 
-    resource :like, only: [ :show, :create, :destroy ]
+    member do
+      post :like
+    end
+
+    # resource :like, only: [ :show, :create, :destroy ]
   end
 
   resources :accounts, only: [ :show ] do
@@ -31,7 +35,11 @@ Rails.application.routes.draw do
     resources :unfollows, only: [ :create ]
   end
 
-  resource :profile, only: [ :show, :edit, :update ]
+  resource :profile, only: [ :show, :edit, :update ] do
+    collection do
+      post :publish
+    end
+  end
   # favorites: お気に入りの記事一覧を表示するためのルーティング
   resources :favorites, only: [ :index ]
 end
