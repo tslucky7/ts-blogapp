@@ -56,6 +56,7 @@ group :development, :test do
   gem "letter_opener"
   gem "letter_opener_web", "~> 3.0"
   gem "pry-byebug"
+  gem "rspec-rails"
   gem "rubocop-rails"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
