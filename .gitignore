@@ -45,3 +45,7 @@
 
 # DON'T DELETE!!! Ignore AWS access key
 /AWS-access-key
+
+# Ignore local Redis dump and stray log file
+/dump.rdb
+/logfile
